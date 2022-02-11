@@ -1,22 +1,39 @@
 const fs = require("fs");
 const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 let input = fs.readFileSync(filePath).toString().trim().split("\n");
-// const testCaseArray = [];
 
-// for (let i = 0; ; i++) {
-//   const tempValue = input[i].split(" ").map((item) => +item);
-//   console.log(tempValue);
+item = input.map((item) => +item);
+
+const A = item[0];
+const B = item[1];
+const C = item[2];
+
+solution();
+
+// function solution() {
+//   let multiplication = String(A * B * C);
+//   const answer = Array(10).fill(0);
+//   console.log("multiplication: ", multiplication);
+//   for (let i = 0; i < multiplication.length; i++) {
+//     const nowChar = +multiplication[i];
+//     console.log(nowChar);
+//     answer[nowChar]++;
+//   }
+//   console.log(answer);
 // }
 
-let length = input.length;
-let cnt = 0;
+function solution() {
+  let multiplication = String(A * B * C);
 
-while (length > 0) {
-  let testCaseValue = input[cnt].split(" ").map(Number);
-  let A = testCaseValue[0];
-  let B = testCaseValue[1];
+  for (let i = 0; i <= 9; i++) {
+    // console.log(multiplication.split(i).length - 1);
+    let count = 0;
 
-  console.log(A + B);
-  cnt++;
-  length--;
+    for (let j = 0; j < multiplication.length; j++) {
+      if (Number(multiplication[j]) === i) {
+        count++;
+      }
+    }
+    console.log(count);
+  }
 }
