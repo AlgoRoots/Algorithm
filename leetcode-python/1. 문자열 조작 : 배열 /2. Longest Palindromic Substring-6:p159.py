@@ -22,4 +22,3 @@ class Solution:
                          key=len)
         return result
 
-    p
