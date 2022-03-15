@@ -1,22 +1,19 @@
 testcases = int(input())
 
-# 1
-# 6 0
-# 1 1 9 1 1 1
-#
+
 # 1
 # 4 2
 # 1 2 3 4
 
-# 1. testcases 로 입력을 받고, for 문을 돌려 n, m 과 문서의 중요도 urgent 를 받는다.
+# 1. testcases 로 입력을 받고, for 문을 돌려 n, m 과 문서의 중요도 queue 를 받는다.
 for _ in range(testcases):
     n, m = list(map(int, input().split()))     # 1
-    urgent = list(map(int, input().split()))   # 6 0
-    idx = list(range(len(urgent)))             # 1 1 9 1 1 1
+    queue = list(map(int, input().split()))   # 6 0
+    idx =list(range(len(queue)))             # 1 1 9 1 1 1
 
     print('testcases :', testcases)
     print('n,m :', n, m)
-    print('urgent :', urgent)
+    print('queue :', queue)
     print('idx :', idx)
 
     idx[m] = 'target'
@@ -27,8 +24,8 @@ for _ in range(testcases):
     order = 0
 
     while True:
-        # 1. 첫번째 if: urgent 첫번째 값 = urgent lists 최댓값?
-        if urgent[0] == max(urgent):
+        # 1. 첫번째 if: queue 첫번째 값 = queue lists 최댓값?
+        if queue[0] == max(queue):
             order += 1
             print('order: ', order)
 
@@ -37,15 +34,13 @@ for _ in range(testcases):
                 print('order: ', order)
                 break
             else:
-                urgent.pop(0)
+                queue.pop(0)
                 idx.pop(0)
-                print('urgent pop(0): ', urgent)
+                print('queue pop(0): ', queue)
                 print('idx pop(0): ', idx)
         # 2. idx의 첫번째 값이 target이 될 때까지 반복된다.
         else:
-            urgent.append(urgent.pop(0))
+            queue.append(queue.pop(0))
             idx.append(idx.pop(0))
-            print('urgent append: ', urgent)
+            print('queue append: ', queue)
             print('idx append: ', idx)
-
-
