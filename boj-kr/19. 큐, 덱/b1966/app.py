@@ -1,3 +1,5 @@
+from collections import deque
+
 testcases = int(input())
 
 
@@ -8,8 +10,8 @@ testcases = int(input())
 # 1. testcases 로 입력을 받고, for 문을 돌려 n, m 과 문서의 중요도 queue 를 받는다.
 for _ in range(testcases):
     n, m = list(map(int, input().split()))     # 1
-    queue = list(map(int, input().split()))   # 6 0
-    idx =list(range(len(queue)))             # 1 1 9 1 1 1
+    queue = deque(map(int, input().split()))    # 4 2
+    idx = deque(range(0, n))              # 1 2 3 4
 
     print('testcases :', testcases)
     print('n,m :', n, m)
@@ -34,13 +36,13 @@ for _ in range(testcases):
                 print('order: ', order)
                 break
             else:
-                queue.pop(0)
-                idx.pop(0)
-                print('queue pop(0): ', queue)
-                print('idx pop(0): ', idx)
+                queue.popleft()
+                idx.popleft()
+                print('queue popleft(): ', queue)
+                print('idx popleft(): ', idx)
         # 2. idx의 첫번째 값이 target이 될 때까지 반복된다.
         else:
-            queue.append(queue.pop(0))
-            idx.append(idx.pop(0))
+            queue.append(queue.popleft())
+            idx.append(idx.popleft())
             print('queue append: ', queue)
             print('idx append: ', idx)
