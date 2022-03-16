@@ -9,9 +9,9 @@ testcases = int(input())
 
 # 1. testcases 로 입력을 받고, for 문을 돌려 n, m 과 문서의 중요도 queue 를 받는다.
 for _ in range(testcases):
-    n, m = list(map(int, input().split()))     # 1
-    queue = deque(map(int, input().split()))    # 4 2
-    idx = deque(range(0, n))              # 1 2 3 4
+    n, m = list(map(int, input().split()))     # 4 2
+    queue = deque(map(int, input().split()))   # 1 2 3 4  
+    idx = deque(range(0, n))             
 
     print('testcases :', testcases)
     print('n,m :', n, m)
