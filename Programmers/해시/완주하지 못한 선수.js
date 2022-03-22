@@ -15,34 +15,46 @@
 // }
 
 // function solution(participant, completion) {
-//   let dic = completion.reduce(
-//     (dic, key) => ((dic[key] = dic[key] ? dic[key] + 1 : 1), dic),
-//     {}
-//   );
-//   console.log(dic);
-//   // ind메서드는주어진 판별 함수를 만족하는 첫 번째 요소의 값을 반환
-//   return participant.find((key) => {
-//     if (dic[key]) dic[key] = dic[key] - 1;
-//     else return true;
-//   });
+//   let answer = "";
+//   participant.sort();
+//   completion.sort();
+
+//   for (let i = 0; i < participant.length; i++) {
+//     if (completion.includes(participant[i]) === false) {
+//       return participant[i];
+//     }
+//   }
 // }
 
 function solution(participant, completion) {
-  const map = new Map();
-
-  for (let i = 0; i < participant.length; i++) {
-    let a = participant[i],
-      b = completion[i];
-
-    map.set(a, (map.get(a) || 0) + 1);
-    map.set(b, (map.get(b) || 0) - 1);
-  }
-
-  for (let [k, v] of map) {
-    if (v > 0) return k;
-  }
-
-  return "nothing";
+  let dic = completion.reduce(
+    (dic, key) => ((dic[key] = dic[key] ? dic[key] + 1 : 1), dic),
+    {}
+  );
+  //console.log(dic);
+  // ind메서드는주어진 판별 함수를 만족하는 첫 번째 요소의 값을 반환
+  return participant.find((key) => {
+    if (dic[key]) dic[key] = dic[key] - 1;
+    else return true;
+  });
 }
+
+// function solution(participant, completion) {
+//   const map = new Map();
+
+//   for (let i = 0; i < participant.length; i++) {
+//     let a = participant[i],
+//       b = completion[i];
+
+//     map.set(a, (map.get(a) || 0) + 1);
+//     map.set(b, (map.get(b) || 0) - 1);
+//   }
+
+//   for (let [k, v] of map) {
+//     if (v > 0) return k;
+//   }
+
+//   return "nothing";
+// }
 
 console.log(solution(["leo", "kiki", "eden"], ["eden", "kiki"]));

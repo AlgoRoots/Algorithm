@@ -15,6 +15,7 @@ function solution(progresses, speeds) {
     Math.ceil((100 - progress) / speeds[index])
   );
   console.log(days);
+  //
 
   // 일 수대로 분리한다.
   // [[5],  [10, 1],   [1, 20,  1]]
