@@ -7,11 +7,15 @@ function solution(clothes) {
   // }
   // console.log(obj2);
 
-  let obj = clothes.reduce((acc, cur) => {
-    acc[cur[1]] = acc[cur[1]] ? acc[cur[1]] + 1 : 1;
+  let obj = clothes.reduce((acc, type) => {
+    acc[type[1]] = acc[type[1]] ? acc[type[1]] + 1 : 1;
     return acc;
   }, {});
 
+  // 같은 형태 return 되게끔
+  // let obj = clothes.reduce((obj, type) => (
+  //   (obj[type[1]] = obj[type[1]] ? obj[type[1]] + 1 : 1), obj
+  //   ),{})
   console.log(obj);
 
   for (let key in obj) {

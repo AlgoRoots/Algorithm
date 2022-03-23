@@ -33,8 +33,8 @@ function solution(participant, completion) {
   );
   //console.log(dic);
   // ind메서드는주어진 판별 함수를 만족하는 첫 번째 요소의 값을 반환
-  return participant.find((key) => {
-    if (dic[key]) dic[key] = dic[key] - 1;
+  return participant.find((name) => {
+    if (dic[name]) dic[name] = dic[name] - 1;
     else return true;
   });
 }
@@ -57,4 +57,4 @@ function solution(participant, completion) {
 //   return "nothing";
 // }
 
-console.log(solution(["leo", "kiki", "eden"], ["eden", "kiki"]));
+console.log(solution(["kiki", "eden", "leo"], ["eden", "kiki"]));
