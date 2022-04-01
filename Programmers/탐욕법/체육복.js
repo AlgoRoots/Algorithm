@@ -51,15 +51,15 @@ function solution(n, lost, reserve) {
   //   return reserve.indexOf(val) == -1;
   // });
 
-  const result = lost.filter((lostNum) => {
-    let flag = true;
-    reserve.forEach((reserveNum) => {
-      if (reserveNum === lostNum) {
-        flag = false;
-      }
-    });
-    return flag;
-  });
+  // const result = lost.filter((lostNum) => {
+  //   let flag = true;
+  //   reserve.forEach((reserveNum) => {
+  //     if (reserveNum === lostNum) {
+  //       flag = false;
+  //     }
+  //   });
+  //   return flag;
+  // });
 
   // console.log(result);
   // console.log(reserve);
