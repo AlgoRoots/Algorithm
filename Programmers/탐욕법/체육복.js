@@ -68,8 +68,8 @@ function solution(n, lost, reserve) {
 
   //return answer;
 }
-//console.log(solution(	5, [2, 4], [1, 3, 5]); // 5
+console.log(solution(5, [2, 4], [1, 3, 5])); // 5
 // console.log(solution(5, [4, 2, 3], [1, 3, 5])); // 5
 // console.log(solution(5, [2, 4], [3])); // 5
-console.log(solution(3, [3], [1])); // 5
-console.log(solution(7, [2, 3, 4], [1, 2, 3, 6])); // 5
+//console.log(solution(3, [3], [1])); // 5
+//console.log(solution(7, [2, 3, 4], [1, 2, 3, 6])); // 5

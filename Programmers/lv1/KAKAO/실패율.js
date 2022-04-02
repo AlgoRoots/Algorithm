@@ -1,32 +1,21 @@
 function solution(N, stages) {
-  // let answer = [];
-
-  // const curStageCount = [];
-  // const curSuccessCount = [];
-  // for (let i = 1; i <= N; i++) {
-  //   curStageCount.push(stages.filter((v) => v === i).length);
-  //   curSuccessCount.push(stages.filter((v) => v >= i).length);
-  // }
-  // console.log(curStageCount);
-  // console.log(curSuccessCount);
-
-  // const failRate = curStageCount.map(
-  //   (item, index) => item / curSuccessCount[index]
-  // );
-  // console.log("failRate: ", failRate);
-
   let answer = [];
-  for (let i = 1; i <= N; i++) {
-    let reach = stages.filter((x) => x >= i).length;
-    let curr = stages.filter((x) => x === i).length;
-    answer.push([i, curr / reach]);
-  }
-  console.log(answer);
-  answer.sort((a, b) => b[1] - a[1]);
-  return answer.map((x) => x[0]);
-  // return answer;
-}
 
+  for (let i = 1; i <= N; i++) {
+    let curStageCount = stages.filter((v) => v === i).length;
+    let curSuccessCount = stages.filter((v) => v >= i).length;
+    if (curSuccessCount === 0) {
+      answer.push({ stage: i, failRate: 0 });
+      continue;
+    }
+    answer.push({ stage: i, failRate: curStageCount / curSuccessCount });
+  }
+
+  console.log("answer", answer);
+
+  answer.sort((a, b) => b.failRate - a.failRate);
+  return answer.map((x) => x.stage);
+}
 console.log(solution(5, [2, 1, 2, 6, 2, 4, 3, 3])); //[3,4,2,1,5]
 console.log(solution(4, [4, 4, 4, 4, 4])); //	[4,1,2,3]
 console.log(solution(5, [1, 1, 1, 1])); //	[4,1,2,3]
