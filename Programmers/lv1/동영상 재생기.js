@@ -32,13 +32,9 @@ function solution(video_len, pos, op_start, op_end, commands) {
     return times["pos"];
   })();
 
-  console.log("times", times, { cur });
   const resultForSec = commands.reduce((acc, cmd) => {
     let tempPos = acc + CMD_MAP[cmd];
 
-    if (isInOpening(tempPos)) {
-      tempPos = times["op_end"];
-    }
     if (isEarly10s(tempPos)) {
       tempPos = 0;
     }
