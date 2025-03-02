@@ -77,7 +77,8 @@ function solution(bandage, health, attacks) {
 // ]); // 3
 
 /**
- * 다른 접근
+ * 다른 접근 방식
+ * 매 초 조회하지 않고, attack 횟수로만 조회
  */
 
 // function solution(bandage, health, attacks) {
