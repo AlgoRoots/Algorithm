@@ -41,3 +41,5 @@ console.log(graph.addEdge("Tokyo", "Aspen"));
 console.log(graph.addEdge("Dallas", "Aspen"));
 // console.log(graph.removeEdge("Tokyo", "Dallas"));
 console.log(graph.removeVertex("Tokyo"));
+
+module.exports = { Graph };
