@@ -90,20 +90,20 @@ class Graph extends BaseGraph {
   }
 }
 const graph = new Graph();
-graph.addVertex("A");
-graph.addVertex("B");
-graph.addVertex("C");
-graph.addVertex("D");
-graph.addVertex("E");
-graph.addVertex("F");
+graph.addVertex("5");
+graph.addVertex("4");
+graph.addVertex("2");
+graph.addVertex("1");
+graph.addVertex("3");
+// graph.addVertex("F");
 
-graph.addEdge("A", "B");
-graph.addEdge("A", "C");
-graph.addEdge("B", "D");
-graph.addEdge("C", "E");
-graph.addEdge("D", "E");
-graph.addEdge("D", "F");
-console.log(graph.addEdge("E", "F"));
+graph.addEdge("5", "4");
+graph.addEdge("5", "2");
+graph.addEdge("1", "2");
+graph.addEdge("3", "4");
+graph.addEdge("3", "1");
+// graph.addEdge("D", "F");
+// console.log(graph.addEdge("E", "F"));
 
-console.log("dfs 재귀", graph.depthFirstRecursive("A"));
-console.log("dfs 순회", graph.depthFirstIterative("A"));
+console.log("dfs 재귀", graph.depthFirstRecursive("3"));
+console.log("dfs 순회", graph.depthFirstIterative("3"));

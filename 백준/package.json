@@ -1,0 +1,10 @@
+{
+  "name": "boj-kr",
+  "type": "commonjs",
+  "scripts": {
+    "build": "node ../build.js"
+  },
+  "imports": {
+    "#helper/*": "./*.js"
+  }
+}
