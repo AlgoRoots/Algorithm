@@ -6,9 +6,7 @@ const createInput = (filePath = "./input.txt", selectCase) => {
   const raw = fs.readFileSync(path).toString().trim();
 
   const api = {
-    raw,
     문자: () => raw,
-    숫자: () => Number(raw),
     한줄: (mapper = String) => raw.split(" ").map(mapper),
     여러줄: (mapper = String) => raw.split("\n").map(mapper),
     여러줄_띄어쓰기: (mapper = String) =>
