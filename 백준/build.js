@@ -1,8 +1,14 @@
 const fs = require("fs");
 const path = require("path");
 
-const baseDir = process.cwd();
-const inputPath = path.join(baseDir, "app.js");
+const baseDir = process.env.INIT_CWD; // 터미널 실행시 경로
+const args = process.argv;
+const inputFlagIndex = args.indexOf("-i");
+const inputName =
+  inputFlagIndex !== -1 && args[inputFlagIndex + 1]
+    ? args[inputFlagIndex + 1]
+    : "app.js";
+const inputPath = path.join(baseDir, inputName);
 const outputPath = path.join(baseDir, "solution.js");
 
 let content = fs.readFileSync(inputPath, "utf-8");
@@ -62,5 +68,7 @@ const finalContent = fsHeader.trim() + "\n\n" + content.trim();
 fs.writeFileSync(outputPath, finalContent, "utf-8");
 
 console.log(
-  `solution.js 생성 완료 (${methodName}${mapper ? " + mapper" : ""})`
+  `solution.js 생성 완료 from ${inputName} (${methodName}${
+    mapper ? " + mapper" : ""
+  })`
 );
