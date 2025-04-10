@@ -22,6 +22,12 @@
 //        ◀── 백트래킹: visited[2] = false
 //  └─▶ [2] ... (다른 경로 탐색)
 
+// dfs(start=0, curr=0, cost=0, count=1)
+//  └──> next = 1
+//         └──> next = 2
+//               └──> next = 3
+//                     └──> return to start(0) 확인!
+
 const { createInput } = require("#helper/create-input");
 
 const input = createInput().여러줄_띄어쓰기(Number);

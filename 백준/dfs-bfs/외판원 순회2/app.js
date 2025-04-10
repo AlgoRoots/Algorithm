@@ -9,43 +9,18 @@
  * A > B 비용 i,j
  * B > A 비용 j,i
  *
+ * TSP 문제 (외판원 순회)
+ * 가장 적은 비용을 들여 도시를 모두 거쳐 원래 도시로 돌아온다.
  *
+ * dfs + 백트레킹
+ * visited N개
+ * count++하면서 N번을 다돌고 N = count 이면서 다시 원래 도시로 가는 비용이 >0이면
+ * mincost 설정
  */
 
 const { createInput } = require("#helper/create-input");
 
 const input = createInput().여러줄_띄어쓰기(Number);
 
-function solution(input) {
-  const [[N], ...W] = input;
-
-  const visited = Array(N).fill(false);
-  let minCost = Infinity;
-
-  function dfs(start, curr, cost, count) {
-    if (count === N && W[curr][start] > 0) {
-      minCost = Math.min(minCost, cost + W[curr][start]);
-      return;
-    }
-
-    for (let next = 0; next < N; next++) {
-      if (!visited[next] && W[curr][next] > 0) {
-        visited[next] = true;
-        dfs(start, next, cost + W[curr][next], count + 1);
-        visited[next] = false;
-      }
-    }
-  }
-  for (let i = 0; i < N; i++) {
-    visited[i] = true;
-    dfs(i, i, 0, 1);
-    visited[i] = false;
-  }
-  console.log(minCost);
-  // console.log(bfs(0, 0));
-
-  // for (let i = 0; i < N; i++) {}
-  // console.log("visited", visited, graph);
-}
-
+function solution(input) {}
 solution(input);
