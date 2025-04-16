@@ -3,7 +3,7 @@
   "type": "commonjs",
   "scripts": {
     "build": "node build.js",
-    "create": "node create-template.js"
+    "new": "node create-template.js"
   },
   "imports": {
     "#helper/*": "./*.js"

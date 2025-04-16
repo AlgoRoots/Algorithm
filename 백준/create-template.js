@@ -3,7 +3,6 @@ const path = require("path");
 
 const baseDir = process.env.INIT_CWD || process.cwd();
 const args = process.argv;
-
 const outputFlagIdx = args.indexOf("-o");
 const outputName = outputFlagIdx !== -1 ? args[outputFlagIdx + 1] : "@template";
 

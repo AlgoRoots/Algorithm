@@ -1,7 +1,6 @@
 # Node.js로 백준 알고리즘 문제 편하게 풀기
 
 > 백준 알고리즘 문제를 더 효율적으로 관리하고 실행하기 위한 디렉토리 구조와 자동 변환 시스템입니다.
-> 간단히 만든 구조라 완전한 자동화는 아닙니다..!
 
 ---
 
@@ -9,7 +8,7 @@
 
 ```bash
 백준/
-├── @template/               # 공통 템플릿 (문제 시작 용)
+├── @template/               # 공통 템플릿 (문제 복사)
 │   ├── app.js               # 문제 풀이 작성 파일
 │   └── input.txt            # 로컬 테스트용 입력
 │
@@ -38,16 +37,16 @@
 기본 실행 (기본 입력 파일: @template)
 
 ```bash
-npm run create or pnpm create
+npm run new or pnpm new
 ```
 
 output 폴더 이름 지정 (-o: output 폴더 이름 지정)
 
 ```bash
 
-npm run create -o 문제이름
+npm run new -o 문제이름
 # 또는
-pnpm run create -o 문제이름
+pnpm new -o 문제이름
 ```
 
 - @template/ 폴더의 파일들이 지정한 이름의 디렉토리로 복사됩니다.
@@ -74,7 +73,7 @@ const input = createInput().여러줄(Number);
 기본 실행 (기본 입력 파일: app.js)
 
 ```bash
-npm run build or pnpm run build
+npm run build or pnpm build
 ```
 
 다른 입력 파일 지정 (-i: input 파일명 지정)
@@ -82,7 +81,7 @@ npm run build or pnpm run build
 ```bash
 npm run build -- -i xx.js
 # 또는
-pnpm run build -i xx.js
+pnpm build -i xx.js
 ```
 
 - `app.js` → `solution.js`로 변환
@@ -108,7 +107,7 @@ pnpm run build -i xx.js
 
 ### 새로운 문제 시작할 때
 
-1. `@template` 폴더 복사 → `npm run create -o 문제이름`
+1. `@template` 폴더 복사 → `npm run new -o 문제이름`
 2. `app.js`에 문제 풀이 작성
 3. `input.txt`에 예제 입력 넣기
 4. `npm run build`로 변환 후 `solution.js` 제출

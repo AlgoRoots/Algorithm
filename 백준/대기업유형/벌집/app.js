@@ -1,5 +1,5 @@
 /**
- * @link https://www.acmicpc.net/problem/
+ * @link https://www.acmicpc.net/problem/1157
  */
 
 /**
@@ -8,7 +8,7 @@
 
 const { createInput } = require("#helper/create-input");
 
-const input = createInput().여러줄();
+const input = createInput().문자();
 
 function solution(input) {}
 

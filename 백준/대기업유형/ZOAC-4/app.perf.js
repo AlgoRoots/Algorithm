@@ -11,13 +11,10 @@ function solution(input) {
   const [H, W, N, M] = input;
   let count = 0;
 
-  for (let i = 1; i <= H; i += N + 1) {
-    for (let j = 1; j <= W; j += M + 1) {
-      count++;
-    }
-  }
+  const row = Math.ceil(H / (N + 1));
+  const col = Math.ceil(W / (M + 1));
 
-  console.log(count);
+  console.log(row * col);
 }
 
 solution(input);

@@ -1,10 +1,16 @@
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+
 /**
  * @link https://www.acmicpc.net/problem/23971
  */
 
-const { createInput } = require("#helper/create-input");
-
-const input = createInput().한줄(Number);
+const input = fs
+  .readFileSync(filePath)
+  .toString()
+  .trim()
+  .split(" ")
+  .map(Number);
 
 function solution(input) {
   // 행, 개,  세로, 가로
