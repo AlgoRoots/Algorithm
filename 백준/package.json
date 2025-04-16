@@ -2,7 +2,8 @@
   "name": "boj-kr",
   "type": "commonjs",
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "create": "node create-template.js"
   },
   "imports": {
     "#helper/*": "./*.js"

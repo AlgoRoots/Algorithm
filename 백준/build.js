@@ -1,13 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 
-const baseDir = process.env.INIT_CWD; // 터미널 실행시 경로
+const baseDir = process.env.INIT_CWD || process.cwd(); // npm 스크립트 실행 시 최초 cwd or node process cwd
 const args = process.argv;
 const inputFlagIndex = args.indexOf("-i");
-const inputName =
-  inputFlagIndex !== -1 && args[inputFlagIndex + 1]
-    ? args[inputFlagIndex + 1]
-    : "app.js";
+const inputName = inputFlagIndex !== -1 ? args[inputFlagIndex + 1] : "app.js";
 const inputPath = path.join(baseDir, inputName);
 const outputPath = path.join(baseDir, "solution.js");
 
