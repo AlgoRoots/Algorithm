@@ -1,5 +1,6 @@
 /**
  * @link https://www.acmicpc.net/problem/23971
+ * @구현
  */
 
 const { createInput } = require("#helper/create-input");
