@@ -9,11 +9,3 @@ function solution(phone_book) {
   });
   return answer;
 }
-[
-  [1, "a"],
-  [2, "a"],
-  [3, "a"],
-  [4, "b"],
-  [5, "b"],
-  [6, "c"],
-];

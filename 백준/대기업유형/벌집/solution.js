@@ -1,3 +1,6 @@
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+
 /**
  * @link https://www.acmicpc.net/problem/1157
  */
@@ -6,9 +9,7 @@
  *
  */
 
-const { createInput } = require("#helper/create-input");
-
-const input = createInput().문자();
+const input = fs.readFileSync(filePath).toString().trim();
 
 // 1, 4 13
 // 1 //1개

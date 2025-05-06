@@ -12,4 +12,4 @@ const input = createInput().여러줄();
 
 function solution(input) {}
 
-solution(input);
+console.log(solution(input));

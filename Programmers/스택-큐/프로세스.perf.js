@@ -10,7 +10,7 @@ function solution(prices) {
     while (stack.length && prices[i] < prices[stack.at(-1)]) {
       console.log("stack", stack);
       const top = stack.pop();
-      // 현재 인덱스와 스택에서 꺼낸 인덱스의 차이를 결과 배열에 저장
+      // 현재 인덱스와 스택에서 꺼낸 인덱스의 차이를 결과 배열에 저장 (유지시간)
       answer[top] = i - top;
     }
     //현재 인덱스를 스택에 넣음

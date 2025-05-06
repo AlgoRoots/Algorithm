@@ -61,7 +61,7 @@ console.log(merge([1, 10, 50], [2, 14, 99, 100]));
  * 합병 배열 반환
  *
  * 합병은 정렬 중 가장 효율이 좋음
- *      시간(best) (average)  (worst)   공간복잡도
+ *      시간(best) (average)  (worst)   공간복잡도 (이건 버블/삽입/선택 보다 더큼)
  * 합병     O(nlogn)  O(nlogn)  O(nlogn)  O(n)
  *
  * n이 8이면 3번 분할함 log n (분할 횟수)
