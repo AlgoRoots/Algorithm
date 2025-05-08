@@ -1,6 +1,3 @@
-const fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-
 /**
  * @link https://www.acmicpc.net/problem/
  */
@@ -9,8 +6,9 @@ const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
  *
  */
 
+const { createInput } = require("#helper/create-input");
 
-const input = fs.readFileSync(filePath).toString().trim().split('\n');
+const input = createInput().여러줄();
 
 function solution(input) {
   const [N, ...rest] = input;
