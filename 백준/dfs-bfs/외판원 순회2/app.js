@@ -22,5 +22,7 @@ const { createInput } = require("#helper/create-input");
 
 const input = createInput().여러줄_띄어쓰기(Number);
 
-function solution(input) {}
+function solution(input) {
+  const [[N], ...W] = input;
+}
 solution(input);

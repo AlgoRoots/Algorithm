@@ -1,6 +1,3 @@
-const fs = require("fs");
-const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
-
 /**
  * @link https://www.acmicpc.net/problem/
  */
@@ -9,13 +6,9 @@ const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
  *
  */
 
-const input = fs
-  .readFileSync(filePath)
-  .toString()
-  .trim()
-  .split("\n")
-  .map((line) => line.split(" "))
-  .map((line) => line.map(Number));
+const { createInput } = require("#helper/create-input");
+
+const input = createInput().여러줄_띄어쓰기(Number);
 
 function solution(input) {
   const [[N], ...cords] = input;
