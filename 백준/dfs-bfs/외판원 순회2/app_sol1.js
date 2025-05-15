@@ -67,7 +67,7 @@ function solution(input) {
   for (let i = 0; i < N; i++) {
     visited[i] = true;
     console.log({ i });
-    dfs(i, i, 0, 1, [0]);
+    dfs(i, i, 0, 1, []);
     visited[i] = false;
   }
   console.log(minCost);
