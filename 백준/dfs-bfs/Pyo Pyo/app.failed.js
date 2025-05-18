@@ -4,11 +4,10 @@
 
 const { createInput } = require("#helper/create-input");
 
-const input = createInput()
-  .여러줄((str) => str.replace(/^\.+$/, "").split(""))
-  .filter((v) => v.length > 0);
+const input = createInput().여러줄((str) => str.replace(/^\.+$/, "").split(""));
 
-function solution(cord) {
+function solution(input) {
+  const cord = input.filter((v) => v.length > 0);
   console.log("cord", cord);
   const M = cord[0].length;
   const N = cord.length;
