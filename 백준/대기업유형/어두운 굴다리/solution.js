@@ -25,13 +25,13 @@ function solution(input) {
     const visited = Array(N + 1).fill(false);
 
     pos.forEach((p) => {
-      const [min, max] = [Math.max(p - h, 0), Math.min(p + h, N)];
+      const [min, max] = [Math.max(p - h, 0), Math.min(p + h, N + 1)];
       for (let i = min; i <= max; i++) {
         visited[i] = true;
       }
     });
 
-    const isAllVisited = visited.every((v) => !!v);
+    const isAllVisited = visited.every(Boolean);
 
     if (isAllVisited) {
       return h;
