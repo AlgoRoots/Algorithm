@@ -27,18 +27,23 @@ function solution(input) {
   for (let i = 0; i < X; i++) {
     sum += visited[i];
   }
-  console.log("sum", sum); //5
+  console.log("!sum", sum); //5
 
   max = sum;
 
   // 윈도우 슬라이딩
+  // 1(i:0) + 4(i:1) = 5
+  // i === 2
+  // 5 + 2(i:2) - 1(i:0)  = 6
+  // i === 3
+  // 6 + 5(i:3) - 4(i:1) = 7
   for (let i = X; i < N; i++) {
     sum += visited[i] - visited[i - X];
-
     if (sum > max) {
       max = sum;
       period = 1;
-    } else if (sum === max) {
+    }
+    if (sum === max) {
       period++;
     }
   }

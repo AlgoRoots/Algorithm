@@ -111,3 +111,4 @@ pnpm build -i xx.js
 2. `app.js`에 문제 풀이 작성
 3. `input.txt`에 예제 입력 넣기
 4. `npm run build`로 변환 후 `solution.js` 제출
+74` 

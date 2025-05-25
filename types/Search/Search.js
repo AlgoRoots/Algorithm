@@ -83,7 +83,7 @@ function naiveStringSearch(long, short) {
 }
 
 /**
- * 알고리즘	시간복잡도	특징
+ * naive심화 알고리즘	시간복잡도	특징
 Naive	O(N × M)	가장 단순한 방식 (모든 위치에서 비교)
 KMP	O(N + M)	접두사/접미사 정보 활용
 Boyer-Moore	평균 O(N)	뒤에서부터 비교, 점프(스킵) 전략

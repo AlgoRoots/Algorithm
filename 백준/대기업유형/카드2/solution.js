@@ -1,23 +1,28 @@
-const fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 
 /**
  * @link https://www.acmicpc.net/problem/2164
  */
 
-
-const input = fs.readFileSync(filePath).toString().trim().split(' ').map(Number);
+const input = fs
+  .readFileSync(filePath)
+  .toString()
+  .trim()
+  .split(" ")
+  .map(Number);
 
 function solution([N]) {
   let queue = Array.from({ length: N }, (v, i) => i + 1);
-  let head = 0;
+  let cnt = 0;
   while (store.length !== 1) {
-    console.log("queue", queue);
-    head++;
-    queue.push(queue[head++]); // 2. 그 다음 수 뒤로 이동
+    const [n, ...rest] = store;
+    if (cnt % 2 === 0) store = rest;
+    else store = [...rest, n];
+    cnt++;
   }
 
-  return queue[head];
+  return store[0];
 }
 
 console.log(solution(input));
