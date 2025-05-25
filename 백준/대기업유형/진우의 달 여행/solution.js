@@ -29,7 +29,7 @@ function solution(input) {
   const isValid = (y, x) => y >= 0 && x >= 0 && y < N && x < M;
   let minCost = Infinity;
 
-  const dfs = (y, x, visited, cost = coords[y][x], [py, px] = [-1, -1]) => {
+  const dfs = (y, x, cost = coords[y][x], [py, px] = [-1, -1]) => {
     if (cost > minCost) return;
     if (y === N - 1) {
       minCost = Math.min(cost, minCost);
@@ -39,14 +39,13 @@ function solution(input) {
       const nx = x + dx;
 
       if (isValid(ny, nx) && (py !== dy || px !== dx)) {
-        dfs(ny, nx, visited, cost + coords[ny][nx], [dy, dx]);
+        dfs(ny, nx, cost + coords[ny][nx], [dy, dx]);
       }
     }
   };
 
   for (let x = 0; x < M; x++) {
-    const visited = Array.from({ length: N }, () => Array(M).fill(false));
-    dfs(0, x, visited);
+    dfs(0, x);
   }
 
   return minCost;
