@@ -74,6 +74,7 @@ function mergeSort(arr) {
   const mid = Math.floor(arr.length / 2);
   let left = mergeSort(arr.slice(0, mid));
   let right = mergeSort(arr.slice(mid));
+  console.log("left", mid, left, right);
 
   return merge(left, right);
 }
