@@ -2,6 +2,16 @@
  * @link https://www.acmicpc.net/problem/1522
  */
 
+/**
+ * a 개수 구하고,
+ * a가 0이거나 모두 a면 return 0
+ * maxAInWindow =0
+ * curA= 0
+ *
+ * 윈도우의 범위를 totalA로 잡는 것!
+ * 반복문 돌면서 totalA+input.length 만큼
+ * sliding window
+ */
 const { createInput } = require("#helper/create-input");
 
 const input = createInput().문자((v) => v.split(""));

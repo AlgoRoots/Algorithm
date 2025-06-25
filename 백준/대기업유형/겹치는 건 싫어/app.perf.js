@@ -24,7 +24,6 @@ function solution(input) {
       map.set(leftNum, map.get(leftNum) - 1);
       left++;
     }
-
     leng = Math.max(leng, right - left + 1);
 
     right++;

@@ -17,7 +17,7 @@ function solution(input) {
 
   // 하나의 색만 있는 경우
   if (n === totalBlue || n === totalRed) return 0;
-  console.log("totalRed", totalRed, totalBlue);
+
   let min = 0,
     curR = 0,
     curB = 0;
