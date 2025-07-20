@@ -1,5 +1,6 @@
 /**
  * @link https://www.acmicpc.net/problem/12847
+ * sliding window
  */
 
 const { createInput } = require("#helper/create-input");
