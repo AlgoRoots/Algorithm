@@ -67,6 +67,7 @@ if (!inputConfig) {
 
 const { type: inputType, mapperCode = "", customParserCode = "" } = inputConfig;
 
+// 3. solution.js에 들어갈 최종 입력 파싱 코드 문자열 생성
 const parserMap = {
   string: `fs.readFileSync(filePath).toString().trim()`,
   number: `Number(fs.readFileSync(filePath).toString().trim())`,
@@ -93,6 +94,7 @@ if (inputType === "custom") {
     if (param) {
       const body = customParserCode.substring(arrowIndex + 2).trim();
       const baseReader = `fs.readFileSync(filePath).toString().trim()`;
+      // [수정됨] 'g' 플래그를 제거하여 첫 번째 일치하는 부분만 치환하도록 변경
       const replacementRegex = new RegExp(`\\b${param}\\b`);
       finalParsedCode = body.replace(replacementRegex, baseReader);
     } else {
@@ -117,15 +119,18 @@ if (inputType === "custom") {
   }
 }
 
-const solutionFunctionIndex = content.indexOf("function solution");
-if (solutionFunctionIndex === -1) {
+const logicStartMarker = "const input = getInput(inputConfig)";
+const logicStartIndex = content.indexOf(logicStartMarker);
+
+if (logicStartIndex === -1) {
   console.error(
-    "`function solution(...)`을 찾을 수 없습니다. app.js 파일 구조를 확인해주세요."
+    `'${logicStartMarker}' 라인을 찾을 수 없습니다. app.js 파일 구조를 확인해주세요.`
   );
   process.exit(1);
 }
 
-const solutionContent = content.substring(solutionFunctionIndex);
+const endOfInputLineIndex = content.indexOf("\n", logicStartIndex);
+const coreLogic = content.substring(endOfInputLineIndex + 1).trim();
 
 const fsHeader = `
 const fs = require('fs');
@@ -137,7 +142,7 @@ const finalContent =
   "\n\n" +
   `const input = ${finalParsedCode};` +
   "\n\n" +
-  solutionContent.trim();
+  coreLogic;
 
 fs.writeFileSync(outputPath, finalContent, "utf-8");
 

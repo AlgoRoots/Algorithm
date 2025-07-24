@@ -1,6 +1,11 @@
 /**
  * @link https://www.acmicpc.net/problem/
  */
+
+/**
+ *
+ */
+
 const { defineInput, getInput } = require("#helper/input-config-helper");
 
 const inputConfig = defineInput("multiLine");

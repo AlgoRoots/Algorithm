@@ -42,12 +42,13 @@ function solution(input) {
     for (const [char, positions] of charMap.entries()) {
       // 해당 문자가 K개 미만이라면 조건 불만족이므로 스킵
       if (positions.length < K) continue;
-
+      console.log("positions", positions);
       // position.length K개를 뽑아낼 수 있는 시작 인덱스 범위
       for (let i = 0; i <= positions.length - K; i++) {
         const start = positions[i];
         const end = positions[i + K - 1];
         const len = end - start + 1;
+        console.log({ start, end, len });
 
         if (len < minLen) minLen = len;
         if (W[start] === W[end] && len > maxLen) maxLen = len;
